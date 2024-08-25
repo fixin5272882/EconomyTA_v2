@@ -16,7 +16,7 @@ import string
 import os
 
 # 升級 openai 庫
-os.system('pip install openai --upgrade')
+os.system('pip install openai==0.27.9')
 
 # 使用 curl 下載 clinic_qa.json 文件
 os.system('curl -o fineTuneData.json -L https://raw.githubusercontent.com/fixin5272882/EconomyTA_v2/main/fineTuneData.json')
@@ -28,7 +28,7 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # 創建 fine-tune 文件
 openai.File.create(
-  file=open("clinic_qa.json", "rb"),
+  file=open("fineTuneData.json", "rb"),
   purpose='fine-tune'
 )
 
